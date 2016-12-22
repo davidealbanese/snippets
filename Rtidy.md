@@ -1,42 +1,57 @@
 R Tidy
 ================
 
-------------------------------------------------------------------------
+Baseline/Follow-up ratio
+------------------------
 
-First
------
+BA: Baseline, FO: Follow-up, 3 variables
 
 ``` r
-df = data.frame(Subject=rep(c("S1","S2","S3"), each=4),
-                Visit=rep(c("V1","V2","V3","V4"), 3),
-                Var1=rnorm(12), Var2=rnorm(12), Var3=rnorm(12))
+library(tidyr)
+library(dplyr)
+```
+
+    ## 
+    ## Attaching package: 'dplyr'
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+
+``` r
+df = data.frame(Subject=rep(c("S1","S2","S3"), each=2),
+                Measure=rep(c("BA","FO"), 3),
+                Var1=rnorm(6), Var2=rnorm(6), Var3=rnorm(6))
 df
 ```
 
-    ##    Subject Visit        Var1         Var2        Var3
-    ## 1       S1    V1 -0.94631528  0.485148510 -0.59568063
-    ## 2       S1    V2 -0.36719384  1.781613718 -0.13691851
-    ## 3       S1    V3 -0.49800078 -1.395590172 -0.76680896
-    ## 4       S1    V4 -0.68343697 -0.070487823 -0.49168899
-    ## 5       S2    V1  2.55866778  0.944759914  0.06569661
-    ## 6       S2    V2 -0.36354022 -1.772992957 -0.21976442
-    ## 7       S2    V3  1.44153472 -0.603469808  0.14730493
-    ## 8       S2    V4  0.08921438 -1.868308660 -0.44634538
-    ## 9       S3    V1 -1.20312104 -1.061268706 -0.03125530
-    ## 10      S3    V2 -1.34694219  1.637016313 -0.84351738
-    ## 11      S3    V3  0.05571668 -0.006410815 -1.56332110
-    ## 12      S3    V4  0.01787364  0.341172880  1.82761222
-
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*.
+    ##   Subject Measure         Var1        Var2        Var3
+    ## 1      S1      BA  1.137617500 -1.22791121  0.52528676
+    ## 2      S1      FO -0.504555189 -1.34075486 -1.40107216
+    ## 3      S2      BA -1.938562329  0.01065907  0.14174794
+    ## 4      S2      FO  0.040044364 -0.76444987 -0.33083560
+    ## 5      S3      BA -0.001096032 -0.02881580 -1.54609337
+    ## 6      S3      FO -1.381120306  0.35654772  0.03899373
 
 ``` r
-plot(cars)
+df %>% gather(Var, Value, Var1:Var3) %>% group_by(Subject, Var) %>% spread(Measure, Value) %>% mutate(Ratio=BA/FO)
 ```
 
-![](Rtidy_files/figure-markdown_github/unnamed-chunk-2-1.png)
-
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
-
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
+    ## Source: local data frame [9 x 5]
+    ## Groups: Subject, Var [9]
+    ## 
+    ##   Subject   Var           BA          FO         Ratio
+    ##    <fctr> <chr>        <dbl>       <dbl>         <dbl>
+    ## 1      S1  Var1  1.137617500 -0.50455519 -2.254694e+00
+    ## 2      S1  Var2 -1.227911214 -1.34075486  9.158357e-01
+    ## 3      S1  Var3  0.525286758 -1.40107216 -3.749177e-01
+    ## 4      S2  Var1 -1.938562329  0.04004436 -4.841037e+01
+    ## 5      S2  Var2  0.010659066 -0.76444987 -1.394345e-02
+    ## 6      S2  Var3  0.141747939 -0.33083560 -4.284543e-01
+    ## 7      S3  Var1 -0.001096032 -1.38112031  7.935816e-04
+    ## 8      S3  Var2 -0.028815795  0.35654772 -8.081890e-02
+    ## 9      S3  Var3 -1.546093372  0.03899373 -3.964980e+01
