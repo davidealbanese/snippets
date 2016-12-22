@@ -1,7 +1,18 @@
 ---
-title: "R Notebook"
+title: "R Tidy"
 output: html_notebook
 ---
+
+
+## First
+
+```{r}
+df = data.frame(Subject=rep(c("S1","S2","S3"), each=4),
+                Visit=rep(c("V1","V2","V3","V4"), 3),
+                Var1=rnorm(12), Var2=rnorm(12), Var3=rnorm(12))
+df
+```
+
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
 
