@@ -7,51 +7,47 @@ Baseline/Follow-up ratio
 BA: Baseline, FO: Follow-up, 3 variables
 
 ``` r
+library(knitr)
+
 library(tidyr)
 library(dplyr)
 ```
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
 
 ``` r
 df = data.frame(Subject=rep(c("S1","S2","S3"), each=2),
                 Measure=rep(c("BA","FO"), 3),
                 Var1=rnorm(6), Var2=rnorm(6), Var3=rnorm(6))
-df
+
+kable(df)
 ```
 
-    ##   Subject Measure         Var1        Var2        Var3
-    ## 1      S1      BA  1.137617500 -1.22791121  0.52528676
-    ## 2      S1      FO -0.504555189 -1.34075486 -1.40107216
-    ## 3      S2      BA -1.938562329  0.01065907  0.14174794
-    ## 4      S2      FO  0.040044364 -0.76444987 -0.33083560
-    ## 5      S3      BA -0.001096032 -0.02881580 -1.54609337
-    ## 6      S3      FO -1.381120306  0.35654772  0.03899373
+| Subject | Measure |        Var1|        Var2|        Var3|
+|:--------|:--------|-----------:|-----------:|-----------:|
+| S1      | BA      |   0.2194497|   0.0348866|  -0.0336562|
+| S1      | FO      |   0.4782872|  -1.1173037|  -1.8890313|
+| S2      | BA      |  -1.0941976|   0.1721864|  -2.1085136|
+| S2      | FO      |   0.6169720|   1.8379409|   1.4330097|
+| S3      | BA      |  -1.4710519|   1.9320189|   0.6901743|
+| S3      | FO      |  -0.8408262|  -0.6925225|   0.4107205|
 
 ``` r
-df %>% gather(Var, Value, Var1:Var3) %>% group_by(Subject, Var) %>% spread(Measure, Value) %>% mutate(Ratio=BA/FO)
+df_ratio = df %>% 
+  gather(Var, Value, Var1:Var3) %>%
+  group_by(Subject, Var) %>%
+  spread(Measure, Value) %>%
+  mutate(Ratio=BA/FO)
+
+kable(df_ratio)
 ```
 
-    ## Source: local data frame [9 x 5]
-    ## Groups: Subject, Var [9]
-    ## 
-    ##   Subject   Var           BA          FO         Ratio
-    ##    <fctr> <chr>        <dbl>       <dbl>         <dbl>
-    ## 1      S1  Var1  1.137617500 -0.50455519 -2.254694e+00
-    ## 2      S1  Var2 -1.227911214 -1.34075486  9.158357e-01
-    ## 3      S1  Var3  0.525286758 -1.40107216 -3.749177e-01
-    ## 4      S2  Var1 -1.938562329  0.04004436 -4.841037e+01
-    ## 5      S2  Var2  0.010659066 -0.76444987 -1.394345e-02
-    ## 6      S2  Var3  0.141747939 -0.33083560 -4.284543e-01
-    ## 7      S3  Var1 -0.001096032 -1.38112031  7.935816e-04
-    ## 8      S3  Var2 -0.028815795  0.35654772 -8.081890e-02
-    ## 9      S3  Var3 -1.546093372  0.03899373 -3.964980e+01
+| Subject | Var  |          BA|          FO|       Ratio|
+|:--------|:-----|-----------:|-----------:|-----------:|
+| S1      | Var1 |   0.2194497|   0.4782872|   0.4588241|
+| S1      | Var2 |   0.0348866|  -1.1173037|  -0.0312239|
+| S1      | Var3 |  -0.0336562|  -1.8890313|   0.0178166|
+| S2      | Var1 |  -1.0941976|   0.6169720|  -1.7734962|
+| S2      | Var2 |   0.1721864|   1.8379409|   0.0936844|
+| S2      | Var3 |  -2.1085136|   1.4330097|  -1.4713882|
+| S3      | Var1 |  -1.4710519|  -0.8408262|   1.7495316|
+| S3      | Var2 |   1.9320189|  -0.6925225|  -2.7898281|
+| S3      | Var3 |   0.6901743|   0.4107205|   1.6803989|

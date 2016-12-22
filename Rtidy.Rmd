@@ -4,20 +4,31 @@ output:
   github_document:
     html_preview: true
 ---
-
+  
 ## Baseline/Follow-up ratio
 BA: Baseline, FO: Follow-up, 3 variables
 
-```{r}
+```{r, message=FALSE}
+library(knitr)
+
 library(tidyr)
 library(dplyr)
-
-df = data.frame(Subject=rep(c("S1","S2","S3"), each=2),
-                Measure=rep(c("BA","FO"), 3),
-                Var1=rnorm(6), Var2=rnorm(6), Var3=rnorm(6))
-df
 ```
 
 ```{r}
-df %>% gather(Var, Value, Var1:Var3) %>% group_by(Subject, Var) %>% spread(Measure, Value) %>% mutate(Ratio=BA/FO)
+df = data.frame(Subject=rep(c("S1","S2","S3"), each=2),
+                Measure=rep(c("BA","FO"), 3),
+                Var1=rnorm(6), Var2=rnorm(6), Var3=rnorm(6))
+
+kable(df)
+```
+
+```{r}
+df_ratio = df %>% 
+  gather(Var, Value, Var1:Var3) %>%
+  group_by(Subject, Var) %>%
+  spread(Measure, Value) %>%
+  mutate(Ratio=BA/FO)
+
+kable(df_ratio)
 ```
