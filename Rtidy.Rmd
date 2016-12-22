@@ -1,6 +1,10 @@
 ---
 title: "R Tidy"
-output: html_notebook
+output:
+  github_document:
+    html_preview: false
+---
+
 ---
 
 
@@ -10,7 +14,7 @@ output: html_notebook
 df = data.frame(Subject=rep(c("S1","S2","S3"), each=4),
                 Visit=rep(c("V1","V2","V3","V4"), 3),
                 Var1=rnorm(12), Var2=rnorm(12), Var3=rnorm(12))
-kable(df)
+df
 ```
 
 
