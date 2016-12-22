@@ -2,30 +2,22 @@
 title: "R Tidy"
 output:
   github_document:
-    html_preview: false
+    html_preview: true
 ---
 
----
-
-
-## First
+## Baseline/Follow-up ratio
+BA: Baseline, FO: Follow-up, 3 variables
 
 ```{r}
-df = data.frame(Subject=rep(c("S1","S2","S3"), each=4),
-                Visit=rep(c("V1","V2","V3","V4"), 3),
-                Var1=rnorm(12), Var2=rnorm(12), Var3=rnorm(12))
+library(tidyr)
+library(dplyr)
+
+df = data.frame(Subject=rep(c("S1","S2","S3"), each=2),
+                Measure=rep(c("BA","FO"), 3),
+                Var1=rnorm(6), Var2=rnorm(6), Var3=rnorm(6))
 df
 ```
 
-
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
-
 ```{r}
-plot(cars)
+df %>% gather(Var, Value, Var1:Var3) %>% group_by(Subject, Var) %>% spread(Measure, Value) %>% mutate(Ratio=BA/FO)
 ```
-
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
-
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
