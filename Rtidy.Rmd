@@ -4,16 +4,17 @@ output:
   github_document:
     html_preview: true
 ---
+
+```{r, message=FALSE}
+# Visualization
+library(knitr) 
+
+library(tidyr) # spread, gather
+library(dplyr) # mutate, ...
+```
   
 ## Baseline/Follow-up ratio
 BA: Baseline, FO: Follow-up, 3 variables
-
-```{r, message=FALSE}
-library(knitr)
-
-library(tidyr)
-library(dplyr)
-```
 
 ```{r}
 df = data.frame(Subject=rep(c("S1","S2","S3"), each=2),
