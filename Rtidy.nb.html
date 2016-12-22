@@ -176,19 +176,116 @@ $(document).ready(function () {
 <h2>First</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGYgPSBkYXRhLmZyYW1lKFN1YmplY3Q9cmVwKGMoXCJTMVwiLFwiUzJcIixcIlMzXCIpLCBlYWNoPTQpLFxuICAgICAgICAgICAgICAgIFZpc2l0PXJlcChjKFwiVjFcIixcIlYyXCIsXCJWM1wiLFwiVjRcIiksIDMpLFxuICAgICAgICAgICAgICAgIFZhcjE9cm5vcm0oMTIpLCBWYXIyPXJub3JtKDEyKSwgVmFyMz1ybm9ybSgxMikpXG5kZlxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGYgPSBkYXRhLmZyYW1lKFN1YmplY3Q9cmVwKGMoXCJTMVwiLFwiUzJcIixcIlMzXCIpLCBlYWNoPTQpLFxuICAgICAgICAgICAgICAgIFZpc2l0PXJlcChjKFwiVjFcIixcIlYyXCIsXCJWM1wiLFwiVjRcIiksIDMpLFxuICAgICAgICAgICAgICAgIFZhcjE9cm5vcm0oMTIpLCBWYXIyPXJub3JtKDEyKSwgVmFyMz1ybm9ybSgxMikpXG5rYWJsZShkZilcbmBgYCJ9 -->
 <pre class="r"><code>df = data.frame(Subject=rep(c(&quot;S1&quot;,&quot;S2&quot;,&quot;S3&quot;), each=4),
                 Visit=rep(c(&quot;V1&quot;,&quot;V2&quot;,&quot;V3&quot;,&quot;V4&quot;), 3),
                 Var1=rnorm(12), Var2=rnorm(12), Var3=rnorm(12))
-df</code></pre>
+kable(df)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NSwibnJvdyI6MTJ9LCJyZGYiOiJINHNJQUFBQUFBQUFBd3R5aVREaWl1QmlZR0JnWW1CbVptSmdZZ1l5V1ppQUJDTURDd01uaUs1Z1lHQVdCakpZZ1RRdmtPWUJTNkppSmpUTWpJcFJER1RMU1MxTHpTa0dzZ1RBc2hCUnBtQkRPTXNJempKRzA4dWFuSk5ZRE5NS056QXRNYmtrdndqSStvZm1SSmhUV0FqelFkWXcvWWVhekFKelFCamNVV0Z3UjRVWncxa21FSDNNLy9HNWlJRVA1Q0w3UHdhdno0bzhQTEgvVXQyVi9ia245OWpmS3NrNWJidUd4WDdmOFlKWmRmZHM3Ui85MjdRNStmUUUrMmYvSE5JTDdzN1oveVoxcDBEcURpbjdoOXQzOTVzNU0reC8veUx2MzkvSUR2dnQzNXVNR0Zac3NYL3gzOGMrSktyUy9oWi9ZSmZlOUcxd2V4NVcvUzVLTUY5aS96YlhlS2MzejNMN1Q2WFQ0cWV0RTlqL21XM2gvWXFwNlE2TWpPd09FaExjKzkrSDlGeTQrR3VDL1Q4eGQrdkpDblBzWDFZZGxMbWs3N2YvZEtIZ2R0UFVmL1p6aXJNdnpYOC9iZjlUUDRNVEUwcEY3VDhmMEV5ZFhORUlzMmYvekFUcnVjMTYxZnVmWHJOcjJwS1dzdi85M2JVaVV6SjY3QytzMnoycHNTN1IvbmRSOTBmK2wxYjI5eHB2R3BhNEdOcS9MMzJmL3psbjNmNW4xM0oyRmJ2ODMzODFUZWFUL1JFYis4ZSttdnpsT1ZZSEdLbzFUZk8xcyt5UGx1UjFCTDZ5UUkvNHZNVGNWRmpFczBJRjJZTkxrN0pTazB0Z2FzSXlpek5oSEphd3hDSkRKTFlSRWhzOVZYRVc1WmZyd1N3QXBSK21CZ1l3NE1FUnYxd3BpU1dKZW1sRlFDMlFPRVl4amoyL29DUXpQdzlvR0JNMDM2Qm9aaXhDRStBdnpRTlpucUtibkZHYWw2MXJDTElBbWtBWm9BNWloQ1pxR0pzVllpVUx6R0d3RUdGTHpVdlB6RXVGQlVoT1lsSnFEcFREQi9RazJJOTZCVVdaZWJCZzRnS0tGdXVWNUpja3d0UnhKZWZud0VRZzZmY2ZBRXhEQnQ4bEJBQUEifQ== -->
-<div data-pagedtable>
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["Subject"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["Visit"],"name":[2],"type":["fctr"],"align":["left"]},{"label":["Var1"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Var2"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Var3"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"S1","2":"V1","3":"1.76194363","4":"0.54626248","5":"-0.02478116"},{"1":"S1","2":"V2","3":"-0.28899115","4":"0.91958033","5":"-0.68240285"},{"1":"S1","2":"V3","3":"0.41335602","4":"1.15370786","5":"-0.99581007"},{"1":"S1","2":"V4","3":"0.12023071","4":"-1.18911922","5":"0.26066484"},{"1":"S2","2":"V1","3":"0.59359107","4":"2.12550211","5":"1.71546549"},{"1":"S2","2":"V2","3":"0.71853657","4":"-0.97907105","5":"0.47667532"},{"1":"S2","2":"V3","3":"-0.88741735","4":"1.88043903","5":"0.98314640"},{"1":"S2","2":"V4","3":"0.55367830","4":"0.79623466","5":"-0.71367489"},{"1":"S3","2":"V1","3":"-0.99712324","4":"-0.21438810","5":"-0.33435749"},{"1":"S3","2":"V2","3":"0.09362043","4":"0.02778405","5":"0.60316899"},{"1":"S3","2":"V3","3":"0.78116429","4":"-0.66579475","5":"-2.06013719"},{"1":"S3","2":"V4","3":"0.40718497","4":"1.23441448","5":"0.16761572"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[12]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
+
+<!-- rnb-html-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImtuaXRfYXNpcyJdfX0= -->
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">Subject</th>
+<th align="left">Visit</th>
+<th align="right">Var1</th>
+<th align="right">Var2</th>
+<th align="right">Var3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">S1</td>
+<td align="left">V1</td>
+<td align="right">-0.0080892</td>
+<td align="right">0.4649942</td>
+<td align="right">-0.3573730</td>
+</tr>
+<tr class="even">
+<td align="left">S1</td>
+<td align="left">V2</td>
+<td align="right">-0.0196127</td>
+<td align="right">0.5208174</td>
+<td align="right">-0.9090856</td>
+</tr>
+<tr class="odd">
+<td align="left">S1</td>
+<td align="left">V3</td>
+<td align="right">0.1882645</td>
+<td align="right">0.7037937</td>
+<td align="right">-0.2792418</td>
+</tr>
+<tr class="even">
+<td align="left">S1</td>
+<td align="left">V4</td>
+<td align="right">0.1863825</td>
+<td align="right">-1.4058741</td>
+<td align="right">-0.2207426</td>
+</tr>
+<tr class="odd">
+<td align="left">S2</td>
+<td align="left">V1</td>
+<td align="right">2.2489349</td>
+<td align="right">0.0202919</td>
+<td align="right">-0.0351127</td>
+</tr>
+<tr class="even">
+<td align="left">S2</td>
+<td align="left">V2</td>
+<td align="right">1.0042213</td>
+<td align="right">0.5366819</td>
+<td align="right">-0.2205651</td>
+</tr>
+<tr class="odd">
+<td align="left">S2</td>
+<td align="left">V3</td>
+<td align="right">0.4614792</td>
+<td align="right">-0.3296283</td>
+<td align="right">-0.0161912</td>
+</tr>
+<tr class="even">
+<td align="left">S2</td>
+<td align="left">V4</td>
+<td align="right">1.1345285</td>
+<td align="right">-0.0003546</td>
+<td align="right">0.0839318</td>
+</tr>
+<tr class="odd">
+<td align="left">S3</td>
+<td align="left">V1</td>
+<td align="right">1.6686282</td>
+<td align="right">-0.0173623</td>
+<td align="right">-0.2830162</td>
+</tr>
+<tr class="even">
+<td align="left">S3</td>
+<td align="left">V2</td>
+<td align="right">0.3805629</td>
+<td align="right">0.1972846</td>
+<td align="right">-0.5968550</td>
+</tr>
+<tr class="odd">
+<td align="left">S3</td>
+<td align="left">V3</td>
+<td align="right">-0.4558586</td>
+<td align="right">-0.8820420</td>
+<td align="right">0.5080045</td>
+</tr>
+<tr class="even">
+<td align="left">S3</td>
+<td align="left">V4</td>
+<td align="right">1.9154496</td>
+<td align="right">-1.4977001</td>
+<td align="right">1.9929644</td>
+</tr>
+</tbody>
+</table>
+
+
+<!-- rnb-html-end -->
+
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>This is an <a href="http://rmarkdown.rstudio.com">R Markdown</a> Notebook. When you execute code within the notebook, the results appear beneath the code.</p>
@@ -208,7 +305,7 @@ df</code></pre>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBUaWR5IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgoKIyMgRmlyc3QKCmBgYHtyfQpkZiA9IGRhdGEuZnJhbWUoU3ViamVjdD1yZXAoYygiUzEiLCJTMiIsIlMzIiksIGVhY2g9NCksCiAgICAgICAgICAgICAgICBWaXNpdD1yZXAoYygiVjEiLCJWMiIsIlYzIiwiVjQiKSwgMyksCiAgICAgICAgICAgICAgICBWYXIxPXJub3JtKDEyKSwgVmFyMj1ybm9ybSgxMiksIFZhcjM9cm5vcm0oMTIpKQpkZgpgYGAKCgpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiAKClRyeSBleGVjdXRpbmcgdGhpcyBjaHVuayBieSBjbGlja2luZyB0aGUgKlJ1biogYnV0dG9uIHdpdGhpbiB0aGUgY2h1bmsgb3IgYnkgcGxhY2luZyB5b3VyIGN1cnNvciBpbnNpZGUgaXQgYW5kIHByZXNzaW5nICpDbWQrU2hpZnQrRW50ZXIqLiAKCmBgYHtyfQpwbG90KGNhcnMpCmBgYAoKQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zZXJ0IENodW5rKiBidXR0b24gb24gdGhlIHRvb2xiYXIgb3IgYnkgcHJlc3NpbmcgKkNtZCtPcHRpb24rSSouCgpXaGVuIHlvdSBzYXZlIHRoZSBub3RlYm9vaywgYW4gSFRNTCBmaWxlIGNvbnRhaW5pbmcgdGhlIGNvZGUgYW5kIG91dHB1dCB3aWxsIGJlIHNhdmVkIGFsb25nc2lkZSBpdCAoY2xpY2sgdGhlICpQcmV2aWV3KiBidXR0b24gb3IgcHJlc3MgKkNtZCtTaGlmdCtLKiB0byBwcmV2aWV3IHRoZSBIVE1MIGZpbGUpLgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBUaWR5IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgoKIyMgRmlyc3QKCmBgYHtyfQpkZiA9IGRhdGEuZnJhbWUoU3ViamVjdD1yZXAoYygiUzEiLCJTMiIsIlMzIiksIGVhY2g9NCksCiAgICAgICAgICAgICAgICBWaXNpdD1yZXAoYygiVjEiLCJWMiIsIlYzIiwiVjQiKSwgMyksCiAgICAgICAgICAgICAgICBWYXIxPXJub3JtKDEyKSwgVmFyMj1ybm9ybSgxMiksIFZhcjM9cm5vcm0oMTIpKQprYWJsZShkZikKYGBgCgoKVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gCgpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ21kK1NoaWZ0K0VudGVyKi4gCgpgYGB7cn0KcGxvdChjYXJzKQpgYGAKCkFkZCBhIG5ldyBjaHVuayBieSBjbGlja2luZyB0aGUgKkluc2VydCBDaHVuayogYnV0dG9uIG9uIHRoZSB0b29sYmFyIG9yIGJ5IHByZXNzaW5nICpDbWQrT3B0aW9uK0kqLgoKV2hlbiB5b3Ugc2F2ZSB0aGUgbm90ZWJvb2ssIGFuIEhUTUwgZmlsZSBjb250YWluaW5nIHRoZSBjb2RlIGFuZCBvdXRwdXQgd2lsbCBiZSBzYXZlZCBhbG9uZ3NpZGUgaXQgKGNsaWNrIHRoZSAqUHJldmlldyogYnV0dG9uIG9yIHByZXNzICpDbWQrU2hpZnQrSyogdG8gcHJldmlldyB0aGUgSFRNTCBmaWxlKS4K</div>
 
 
 
