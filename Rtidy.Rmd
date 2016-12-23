@@ -14,7 +14,8 @@ library(dplyr) # mutate, ...
 ```
   
 ## Baseline/Follow-up ratio
-BA: Baseline, FO: Follow-up, 3 variables
+For each sample and variable we want to compute the baseline-follow-up ratio.
+BA: Baseline, FO: Follow-up, 3 variables.
 
 ```{r}
 df = data.frame(Subject=rep(c("S1","S2","S3"), each=2),
