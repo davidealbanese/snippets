@@ -1,6 +1,10 @@
 R Tidy
 ================
 
+-   [Baseline/Follow-up ratio](#baselinefollow-up-ratio)
+-   [Transpose](#transpose)
+-   [Move a column to the first position](#move-a-column-to-the-first-position)
+
 ``` r
 # Visualization
 library(knitr) 

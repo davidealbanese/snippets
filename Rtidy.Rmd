@@ -2,6 +2,7 @@
 title: "R Tidy"
 output:
   github_document:
+    toc: true
     html_preview: true
 ---
 
