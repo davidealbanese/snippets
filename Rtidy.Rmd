@@ -11,6 +11,8 @@ library(knitr)
 
 library(tidyr) # spread, gather
 library(dplyr) # mutate, ...
+
+set.seed(0)
 ```
   
 ## Baseline/Follow-up ratio
@@ -34,3 +36,34 @@ df_ratio = df %>%
 
 kable(df_ratio)
 ```
+
+## Transpose
+```{r}
+df = data.frame(Subject=c("S1","S2","S3", "S4"),
+                Var1=rnorm(4), Var2=rnorm(4), Var3=rnorm(4))
+
+kable(df)
+```
+```{r}
+df_t = df %>% 
+  gather(Var, Val, -Subject) %>% 
+  spread(Subject, Val)
+
+kable(df_t)
+```
+
+## Move a column to the first position
+
+```{r}
+df = data.frame(Var1=rnorm(4),  Var2=rnorm(4), Var3=rnorm(4))
+
+kable(df)
+```
+```{r}
+df_m = df %>% 
+  select(Var2, everything())
+
+kable(df_m)
+```
+
+
