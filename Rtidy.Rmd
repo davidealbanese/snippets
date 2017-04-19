@@ -38,6 +38,24 @@ df_ratio = df %>%
 kable(df_ratio)
 ```
 
+## Spread multiple columns
+
+```{r}
+df = data.frame(Subject=rep(c("S1","S2","S3"), each=2),
+                Group=rep(c("G1", "G2"), 3),
+                Var1=rnorm(6), Var2=rnorm(6), Var3=rnorm(6))
+kable(df)
+```
+
+```{r}
+df_spread = df %>% 
+  gather(variable, value, -(Subject:Group)) %>%
+  unite(temp, Group, variable, sep=".") %>%
+  spread(temp, value)
+
+kable(df_spread)
+```
+
 ## Transpose
 ```{r}
 df = data.frame(Subject=c("S1","S2","S3", "S4"),
